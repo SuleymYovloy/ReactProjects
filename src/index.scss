@@ -45,6 +45,11 @@ body {
     margin: 0 10px;
     transition: all 0.05s ease-in-out;
 
+    &:disabled {
+      opacity: 0.5;
+      pointer-events: none;
+    }
+
     &.minus {
       background-color: #e63946;
       color: #fff;
