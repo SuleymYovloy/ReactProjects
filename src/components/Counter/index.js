@@ -1,4 +1,5 @@
 import React from "react";
+import './index.scss';
 
 const Counter = () => {
   const [count, setCount] = React.useState(0)
@@ -17,11 +18,13 @@ const Counter = () => {
   }
 
   return (
-    <div>
-      <h2>Счетчик:</h2>
-      <h1>{count}</h1>
-      <button type="button" disabled={count > 0 ? false : true} onClick={onClickMinus} className="minus">- Минус</button>
-      <button onClick={onClickPlus} className="plus">Плюс +</button>
+    <div className="Counter">
+      <div>
+        <h2>Счетчик:</h2>
+        <h1>{count}</h1>
+        <button type="button" disabled={count > 0 ? false : true} onClick={onClickMinus} className="minus">- Минус</button>
+        <button onClick={onClickPlus} className="plus">Плюс +</button>
+      </div>
     </div>
   );
 }

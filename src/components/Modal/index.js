@@ -4,7 +4,7 @@ import './index.scss';
 function Modal({open, setOpen, children}) {
 
   return (
-    <>
+    <div className="modal-app">
       <button onClick={() => setOpen(!open)} className="open-modal-btn">
         ✨ Открыть окно
       </button>
@@ -28,7 +28,7 @@ function Modal({open, setOpen, children}) {
             {children}
           </div>
         </div>
-    </>
+    </div>
   );
 }
 
