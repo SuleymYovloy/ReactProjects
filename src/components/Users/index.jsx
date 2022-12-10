@@ -1,13 +1,55 @@
 import React from "react";
 import { Skeleton } from "./Skeleton";
 import { User } from "./User";
+
+import { Success } from "./Success";
+
 import "./index.scss";
 
 // Тут список пользователей: https://reqres.in/api/users
 
-export const Users = ({ items, isLoading, searchValue, onChangeSearchValue, onClickInvite, invites, onClickSendInvites }) => {
+export const Users = () => {
 
-  return (
+  const [users, setUsers] = React.useState([]);
+  const [invites, setInvites] = React.useState([]);
+  const [success, setSuccess] = React.useState(false);
+  const [isLoading, setIsLoading] = React.useState(true);
+  const [searchValue, setSearchValue] = React.useState('');
+  console.log(success)
+
+  React.useEffect(() => {
+    fetch("https://reqres.in/api/users")
+      .then((res) => res.json())
+      .then((data) => {
+        setUsers(data.data);
+      })
+      .catch((err) => {
+        console.warn(err);
+        alert("Ошибка получения пользователей");
+      })
+      .finally(() => {
+        setIsLoading(false);
+      })
+  }, []);
+
+  const onChangeSearchValue = (event) => {
+    setSearchValue(event.target.value)
+  }
+
+  const onClickInvite = (id) => {
+    if (invites.includes(id)) {
+      setInvites(prev => prev.filter(_id => _id !== id));
+    } else {
+      setInvites(prev => [...prev, id]);
+    }
+  };
+
+  const onClickSendInvites = () => {
+    setSuccess(true)
+  }
+
+
+  return success ? <Success count={invites.length}/> : (
     <div className="users-wrapper">
       <div className="users">
         <div className="search">
@@ -25,13 +67,13 @@ export const Users = ({ items, isLoading, searchValue, onChangeSearchValue, onCl
         ) : (
           <ul className="users-list">
             {
-              items.filter((item) => {
-                const fullName = (item.first_name + item.last_name).toLowerCase();
+              users.filter((user) => {
+                const fullName = (user.first_name + user.last_name).toLowerCase();
                 
-                return fullName.includes(searchValue.toLowerCase()) || item.email.toLowerCase().includes(searchValue.toLowerCase())
+                return fullName.includes(searchValue.toLowerCase()) || user.email.toLowerCase().includes(searchValue.toLowerCase())
 
-              }).map((item) => {
-                return <User onClickInvite={onClickInvite} isInvited={invites.includes(item.id)} key={item.id} data={item}  />;
+              }).map((user) => {
+                return <User onClickInvite={onClickInvite} isInvited={invites.includes(user.id)} key={user.id} data={user}  />;
               })
             }
           </ul>

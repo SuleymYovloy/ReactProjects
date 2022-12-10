@@ -1,7 +1,9 @@
 import React from "react";
 import './index.scss';
 
-function Modal({open, setOpen, children}) {
+function Modal({children}) {
+
+  const [open, setOpen] = React.useState(false); //Modal
 
   return (
     <div className="modal-app">
