@@ -5,6 +5,7 @@ import Modal from "./components/Modal";
 import Quiz from "./components/Quiz";
 import { Success } from "./components/Users/Success";
 import { Users } from "./components/Users";
+import Convertor from "./components/Convertor";
 import { Routes, Route } from "react-router-dom";
 
 function App() {
@@ -66,16 +67,16 @@ function App() {
             
           }
         />
-        {/* {
-          success ? <Route path="/success" element={<Success />} /> : <Route path="/users" element={<Users items={users} isLoading={isLoading} searchValue={searchValue} onChangeSearchValue={onChangeSearchValue} invites={invites} onClickInvite={onClickInvite} onClickSendInvites={onClickSendInvites}/>} />
-        } */}
+        <Route path="/convertor" element={<Convertor />} />
+        
         <Route path="/quiz" element={<Quiz />} />
         
         
+        
       </Routes>
-      {
+      {/* {
         success ? <Success count={invites.length}/> : <Users items={users} isLoading={isLoading} searchValue={searchValue} onChangeSearchValue={onChangeSearchValue} invites={invites} onClickInvite={onClickInvite} onClickSendInvites={onClickSendInvites}/>
-      }
+      } */}
       {/* <Counter/> */}
 
       {/* <Quiz/> */}
