@@ -1,11 +1,11 @@
 import React from "react";
 import "./index.scss";
-// import Counter from "./components/Counter";
-// import Modal from "./components/Modal";
-// import Quiz from "./components/Quiz";
-// import { Success } from "./components/Users/Success";
-// import { Users } from "./components/Users";
-// import Convertor from "./components/Convertor";
+import Counter from "./components/Counter";
+import Modal from "./components/Modal";
+import Quiz from "./components/Quiz";
+import { Success } from "./components/Users/Success";
+import { Users } from "./components/Users";
+import Convertor from "./components/Convertor";
 import CollectionApp from "./components/Collection";
 import { Routes, Route } from "react-router-dom";
 
@@ -54,9 +54,9 @@ function App() {
     <div className="App">
       
       <Routes>
-        {/* <Route path="/counter" element={<Counter />} /> */}
+        <Route path="/counter" element={<Counter />} />
 
-        {/* <Route
+        <Route
           path="/modal"
           element={
             <Modal open={open} setOpen={setOpen}>
@@ -68,20 +68,22 @@ function App() {
             </Modal>
             
           }
-        /> */}
+        />
 
-        {/* <Route path="/quiz" element={<Quiz />} /> */}
+        <Route path="/quiz" element={<Quiz />} />
 
-        {/* <Route path="/convertor" element={<Convertor />} /> */}
+        <Route path="/convertor" element={<Convertor />} />
 
+        <Route path="/collections" element={<CollectionApp />} />
+        
         <Route path="/collections" element={<CollectionApp />} />
         
         
         
       </Routes>
-      {/* {
+      {
         success ? <Success count={invites.length}/> : <Users items={users} isLoading={isLoading} searchValue={searchValue} onChangeSearchValue={onChangeSearchValue} invites={invites} onClickInvite={onClickInvite} onClickSendInvites={onClickSendInvites}/>
-      } */}
+      }
       {/* <Counter/> */}
 
       {/* <Quiz/> */}
