@@ -1,13 +1,13 @@
-import React from 'react';
-import './index.scss';
-import Counter from './components/Counter';
-import Modal from './components/Modal';
-import Quiz from './components/Quiz';
-import Convertor from './components/Convertor';
-import CollectionApp from './components/Collection';
-import { Routes, Route } from 'react-router-dom';
-import { Users } from './components/Users/index';
-import Tabs from './components/Tabs/Tabs';
+import React from "react";
+import "./index.scss";
+import Counter from "./components/Counter";
+import Modal from "./components/Modal";
+import Quiz from "./components/Quiz";
+import Convertor from "./components/Convertor";
+import CollectionApp from "./components/Collection";
+import { Routes, Route } from "react-router-dom";
+import { Users } from "./components/Users/index";
+import Tabs from "./components/Tabs/Tabs";
 
 function App() {
   return (
@@ -35,7 +35,6 @@ function App() {
 
         <Route path="/collections" element={<CollectionApp />} />
 
-        <Route path="/collections" element={<CollectionApp />} />
         <Route path="/users" element={<Users />} />
       </Routes>
     </div>
